@@ -6,7 +6,7 @@
 /*   By: ple-stra <ple-stra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 01:50:32 by ple-stra          #+#    #+#             */
-/*   Updated: 2023/01/11 20:09:28 by ple-stra         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:50:53 by ple-stra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,24 @@ public:
 	~Fixed();
 
 	Fixed & operator=(Fixed const & rhs);
-	bool operator>(Fixed const & rhs);
-	bool operator<(Fixed const & rhs);
-	bool operator>=(Fixed const & rhs);
-	bool operator<=(Fixed const & rhs);
-	bool operator==(Fixed const & rhs);
-	bool operator!=(Fixed const & rhs);
-	Fixed operator+(Fixed const & rhs);
-	Fixed operator-(Fixed const & rhs);
-	Fixed operator*(Fixed const & rhs);
-	Fixed operator/(Fixed const & rhs);
+	bool operator>(Fixed const & rhs) const;
+	bool operator<(Fixed const & rhs) const;
+	bool operator>=(Fixed const & rhs) const;
+	bool operator<=(Fixed const & rhs) const;
+	bool operator==(Fixed const & rhs) const;
+	bool operator!=(Fixed const & rhs) const;
+	Fixed operator+(Fixed const & rhs) const;
+	Fixed operator-(Fixed const & rhs) const;
+	Fixed operator*(Fixed const & rhs) const;
+	Fixed operator/(Fixed const & rhs) const;
 	Fixed & operator++();
-	Fixed & operator--();
 	Fixed operator++(int);
+	Fixed & operator--();
 	Fixed operator--(int);
+	static Fixed & max(Fixed & a, Fixed & b);
+	static Fixed const & max(Fixed const & a, Fixed const & b);
+	static Fixed & min(Fixed & a, Fixed & b);
+	static Fixed const & min(Fixed const & a, Fixed const & b);
 
 	int getRawBits(void) const;
 	void setRawBits(int const value);

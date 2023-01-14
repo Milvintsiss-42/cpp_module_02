@@ -6,7 +6,7 @@
 /*   By: ple-stra <ple-stra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 01:50:20 by ple-stra          #+#    #+#             */
-/*   Updated: 2023/01/11 20:16:53 by ple-stra         ###   ########.fr       */
+/*   Updated: 2023/01/14 15:56:04 by ple-stra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,29 @@ int main(int argc, char **argv)
 	std::cout << "a - b = " << a - b << std::endl;
 	std::cout << "a * b = " << a * b << std::endl;
 	std::cout << "a / b = " << a / b << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << ++a << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << a++ << std::endl;
-	// std::cout << a << std::endl;
-	// std::cout << b << std::endl;
-	// std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << "a value: " << a << std::endl;
+	std::cout << "a++: " << a++ << std::endl;
+	std::cout << "a value: " << a << std::endl;
+	std::cout << "++a: " << ++a << std::endl;
+	std::cout << "a value: " << a << std::endl;
+	std::cout << "b value: " << b << std::endl;
+	std::cout << "b--: " << b-- << std::endl;
+	std::cout << "b value: " << b << std::endl;
+	std::cout << "--b: " << --b << std::endl;
+	std::cout << "b value: " << b << std::endl;
+	std::cout << "Biggest fixed: " << Fixed::max(a, b) << std::endl;
+	std::cout << "Smallest fixed: " << Fixed::min(a, b) << std::endl;
+
+	{
+		Fixed a;
+		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+		std::cout << a << std::endl;
+		std::cout << ++a << std::endl;
+		std::cout << a << std::endl;
+		std::cout << a++ << std::endl;
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << Fixed::max( a, b ) << std::endl;
+	}
 	return 0;
 }
