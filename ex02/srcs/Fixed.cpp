@@ -6,7 +6,7 @@
 /*   By: ple-stra <ple-stra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 01:50:29 by ple-stra          #+#    #+#             */
-/*   Updated: 2023/01/17 22:59:13 by ple-stra         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:40:52 by ple-stra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(int const value)
 {
-	this->_value = value << 8;
+	this->_value = value * (1 << _nbBits);
 }
 
 Fixed::Fixed(float const value)

@@ -6,7 +6,7 @@
 /*   By: ple-stra <ple-stra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 01:50:29 by ple-stra          #+#    #+#             */
-/*   Updated: 2023/01/11 18:46:17 by ple-stra         ###   ########.fr       */
+/*   Updated: 2023/01/18 17:38:42 by ple-stra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ Fixed::Fixed(int const value)
 {
 	std::cout << "Int constructor called" << std::endl;
 
-	this->_value = value << 8;
+	this->_value = value * (1 << _nbBits);
 }
 
 Fixed::Fixed(float const value)
 {
 	std::cout << "Float constructor called" << std::endl;
 
-	this->_value = static_cast<int>(roundf(value)) << _nbBits;
+	this->_value = static_cast<int>(roundf(value)) * (1 << _nbBits);
 	this->_value += static_cast<int>(roundf((value - roundf(value))
 		* ft_pow(2, _nbBits)));
 }
@@ -77,8 +77,8 @@ int Fixed::toInt(void) const
 
 float Fixed::toFloat(void) const
 {
-	int integerPart = this->_value >> _nbBits;
-	float fractionalPart = (this->_value - (integerPart << _nbBits))
+	int integerPart = this->_value / (1 << _nbBits);
+	float fractionalPart = (this->_value - (integerPart * (1 << _nbBits)))
 		/ ft_pow(2, _nbBits);
 	return integerPart + fractionalPart;
 }
